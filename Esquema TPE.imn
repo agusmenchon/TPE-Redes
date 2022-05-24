@@ -12,8 +12,8 @@ node n1 {
 	!
     }
     canvas c1
-    iconcoords {256.0 47.0}
-    labelcoords {212.0 63.0}
+    iconcoords {257.0 47.0}
+    labelcoords {213.0 63.0}
     interface-peer {eth0 n2}
     interface-peer {eth1 n8}
     custom-config {
@@ -40,15 +40,15 @@ node n2 {
 	!
     }
     canvas c1
-    iconcoords {256.6666666666667 221.33333333333334}
-    labelcoords {259.6666666666667 254.3333333333333}
+    iconcoords {255.66666666666669 221.33333333333334}
+    labelcoords {258.6666666666667 254.3333333333333}
     interface-peer {eth0 n1}
     interface-peer {eth1 n9}
     custom-config {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ifconfig eth1 10.40.0.1/23', 'ifconfig eth0 201.0.1.2/24', )
+	cmdup=('ifconfig eth1 10.40.0.1/23', 'ifconfig eth0 201.0.1.2/24', 'Ip route add 10.40.2.0/23 via 10.40.0.4 dev eth1', 'Ip route add 10.40.4.0/23 via 10.40.0.4 dev eth1', 'Ip route add 10.40.5.0/24 via 10.40.0.4 dev eth1', 'Ip route add default via 201.0.2.1 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
@@ -76,7 +76,7 @@ node n3 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ifconfig eth1 10.40.2.1/23', 'ifconfig eth0 10.40.0.4/23', )
+	cmdup=('ifconfig eth1 10.40.2.1/23', 'ifconfig eth0 10.40.0.4/23', 'Ip route add 10.40.4.0/24 via 10.40.2.3 dev eth1', 'Ip route add 10.40.5.0/24 via 10.40.2.4 dev eth1', 'Ip route add default via 10.40.0.1 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
@@ -140,7 +140,7 @@ node n5 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ifconfig eth3 10.40.4.193/27', 'ifconfig eth2 10.40.4.225/30', 'ifconfig eth1 10.40.4.129/26', 'ifconfig eth0 10.40.2.3/23', )
+	cmdup=('ifconfig eth3 10.40.4.193/27', 'ifconfig eth2 10.40.4.225/30', 'ifconfig eth1 10.40.4.129/26', 'ifconfig eth0 10.40.2.3/23', 'Ip route add 10.40.4.0/25 via 10.40.4.226 dev eth2', 'Ip route add 10.40.5.0/25 via 10.40.2.4 dev eth0', 'Ip route add 10.40.5.128/26 via 10.40.2.4 dev eth0', 'Ip route add 10.40.5.192/28 via 10.40.2.4 dev eth0', 'Ip route add default via 10.40.2.1 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
@@ -176,7 +176,7 @@ node n6 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ifconfig eth3 10.40.5.193/28', 'ifconfig eth2 10.40.5.1/25', 'ifconfig eth1 10.40.5.129/26', 'ifconfig eth0 10.40.2.4/24', )
+	cmdup=('ifconfig eth3 10.40.5.193/28', 'ifconfig eth2 10.40.5.1/25', 'ifconfig eth1 10.40.5.129/26', 'ifconfig eth0 10.40.2.4/24', 'Ip route add 10.40.4.0/25 via 10.40.2.3 dev eth0', 'Ip route add 10.40.4.128/26 via 10.40.2.3 dev eth0', 'Ip route add 10.40.4.192/27 via 10.40.2.3 dev eth0', 'Ip route add 10.40.4.224/30 via 10.40.2.3 dev eth0', 'Ip route add default via 10.40.2.1 dev eth0', )
 	}
     }
     services {IPForward UserDefined}
