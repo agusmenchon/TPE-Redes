@@ -205,7 +205,7 @@ node n7 {
 	custom-config-id service:UserDefined
 	custom-command UserDefined
 	config {
-	cmdup=('ifconfig eth1 10.40.4.1/25', 'ifconfig eth0 10.40.4.226/30', )
+	cmdup=('ifconfig eth1 10.40.4.1/25', 'ifconfig eth0 10.40.4.226/30', 'ip route add default via 10.40.4.225/30 dev eth0', )
 	}
     }
 }
